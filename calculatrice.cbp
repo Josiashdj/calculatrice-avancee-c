@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="calculatrice" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/calculatrice" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+				<Linker>
+					<Add option="-lm" />
+				</Linker>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/calculatrice" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="decompose.h" />
+		<Unit filename="erreurs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="erreurs.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="evaluation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="evaluation.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="historique.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="historique.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="organiser_expression.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="organiser_expression.h" />
+		<Unit filename="piles.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="piles.h" />
+		<Unit filename="tokenisation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tokenisation.h">
+			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Extensions />
+	</Project>
+</CodeBlocks_project_file>
