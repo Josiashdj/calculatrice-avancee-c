@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1777886639 source:d:\langage c\proj1calculatricehdj\calculatrice\main.c
+1777924813 source:d:\langage c\proj1calculatricehdj\calculatrice\main.c
 	<stdio.h>
 	<stdlib.h>
+	<string.h>
 	"piles.h"
 	"tokenisation.h"
 	"organiser_expression.h"
