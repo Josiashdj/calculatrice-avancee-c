@@ -76,7 +76,7 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                 i++;
                 tokenPrecedent = PAR_FER;
             }
-            else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/' || expression[i] == '^')
+            else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/' || expression[i] == '^' || expression[i] == '%')
             {
                 tokens[*nbTokens].type =OP;
                 tokens[*nbTokens].symbole = expression[i];

@@ -41,6 +41,11 @@ double evaluerExpression(Token *sortie, int nbSortie)
             {
                 resultat = pow(a, b);
             }
+            else if (sortie[i].symbole == '%')
+            {
+                resultat = fmod(a, b);
+
+            }
 
 
             empilerNombre(&pile, resultat);
