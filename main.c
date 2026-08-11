@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
         printf("\t==========================================================================================================\n\t||\t\t\t\t\t\t\t\t\t\t\t\t\t||");
         printf("\n\t|| \t\t\t  ********* Bienvenue sur notre CALCULATRICE***********\t\t\t\t|| \n\t||\t\t\t\t\t\t\t\t\t\t\t\t\t||\n \t||\t\t *********Veuillez choisir le type d'opperation que vous voulez !*********\t\t||\n\t||\t\t\t\t\t\t\t\t\t\t\t\t\t||\n\t========================================================================================================== \n\n");
         int choix = 0;
+        chargerHistorique();
         do
         {
             /* menu... */
@@ -85,6 +86,7 @@ int main(int argc, char *argv[])
                                 resultat= evaluerExpression(sortie, nbSortie);
                                 printf("\n \tResultat : %.4f\n\n", resultat);
                                 ajouterHistorique(expression, resultat);
+                                sauvegarderHistorique();
 
                             }
                             //organiserExpression(tokens, nbTokens, sortie, &nbSortie);
