@@ -4,6 +4,18 @@
 #include "tokenisation.h"
 #include "erreurs.h"
 
+/* convertit une chaîne en minuscules pour comparaison */
+int comparerSansCasse(char *s1, char *s2)
+{
+    int i = 0;
+    while (s1[i] && s2[i])
+    {
+        if (tolower(s1[i]) != tolower(s2[i]))
+            return 1;
+        i++;
+    }
+    return s1[i] != s2[i];
+}
 
 int decouperExpression(char *expression, Token *tokens, int *nbTokens)
 {
@@ -75,6 +87,40 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                 (*nbTokens)++;
                 i++;
                 tokenPrecedent = PAR_FER;
+            }
+            else if (isalpha(expression[i]))
+            {
+                char mot[10];
+                int j = 0;
+
+                /* lire tous les caractères du mot */
+                while (isalpha(expression[i]))
+                {
+                    mot[j] = expression[i];
+                    j++;
+                    i++;
+                }
+                mot[j] = '\0';
+
+                if (comparerSansCasse(mot, "pi") == 0)
+                {
+                    tokens[*nbTokens].type  = NUM;
+                    tokens[*nbTokens].valeur = 3.14159265358979;
+                    (*nbTokens)++;
+                    tokenPrecedent = NUM;
+                }
+                else if (comparerSansCasse(mot, "e") == 0)
+                {
+                    tokens[*nbTokens].type  = NUM;
+                    tokens[*nbTokens].valeur = 2.71828182845904;
+                    (*nbTokens)++;
+                    tokenPrecedent = NUM;
+                }
+                else
+                {
+                    afficherErreur(CARACTERE_INVALIDE);
+                    return 0;
+                }
             }
             else if (expression[i] == '+' || expression[i] == '-' || expression[i] == '*' || expression[i] == '/' || expression[i] == '^' || expression[i] == '%')
             {
