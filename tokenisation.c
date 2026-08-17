@@ -4,7 +4,7 @@
 #include "tokenisation.h"
 #include "erreurs.h"
 
-/* convertit une chaÓne en minuscules pour comparaison */
+/* convertit une cha√Æne en minuscules pour comparaison */
 int comparerSansCasse(char *s1, char *s2)
 {
     int i = 0;
@@ -17,7 +17,7 @@ int comparerSansCasse(char *s1, char *s2)
     return s1[i] != s2[i];
 }
 
-int decouperExpression(char *expression, Token *tokens, int *nbTokens)
+int decouperExpression(char *expression, Token *tokens, int *nbTokens, double ans)
 {
     int i=0;
     *nbTokens =0;
@@ -66,13 +66,13 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                     i++;
                 }
                 buffer[j]= '\0'; // on termine la chaine
-                /*On convertit et on stocke l'expression dÈcoupÈ*/
+                /*On convertit et on stocke l'expression d√©coup√©*/
                 tokens[*nbTokens].type = NUM;
-                tokens[*nbTokens].valeur = atof(buffer); // atof est une fonction de bibliothËque
+                tokens[*nbTokens].valeur = atof(buffer); // atof est une fonction de biblioth√®que
                 (*nbTokens)++;
                 tokenPrecedent = NUM;
             }
-            else if(expression[i] == '(') // parenthËse
+            else if(expression[i] == '(') // parenth√®se
             {
                 tokens[*nbTokens].type =PAR_OUV;
                 tokens[*nbTokens].symbole = '(';
@@ -80,7 +80,7 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                 i++;
                 tokenPrecedent = PAR_OUV;
             }
-            else if(expression[i] == ')') // parenthËse
+            else if(expression[i] == ')') // parenth√®se
             {
                 tokens[*nbTokens].type =PAR_FER;
                 tokens[*nbTokens].symbole = ')';
@@ -93,7 +93,7 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                 char mot[10];
                 int j = 0;
 
-                /* lire tous les caractËres du mot */
+                /* lire tous les caract√®res du mot */
                 while (isalpha(expression[i]))
                 {
                     mot[j] = expression[i];
@@ -116,6 +116,13 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                     (*nbTokens)++;
                     tokenPrecedent = NUM;
                 }
+                else if (comparerSansCasse(mot, "ans") == 0)  /* ‚Üê ajoute ici */
+                {
+                    tokens[*nbTokens].type   = NUM;
+                    tokens[*nbTokens].valeur = ans; /* quelle valeur met-on ici ? */
+                    (*nbTokens)++;
+                    tokenPrecedent = NUM;
+                }
                 else
                 {
                     afficherErreur(CARACTERE_INVALIDE);
@@ -130,7 +137,7 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens)
                 i++;
                 tokenPrecedent = OP;
             }
-            else  // sinon, les opÈrateurs
+            else  // sinon, les op√©rateurs
             {
                 afficherErreur(CARACTERE_INVALIDE);
                 return 0;

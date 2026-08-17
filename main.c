@@ -12,6 +12,7 @@
 
 int main(int argc, char *argv[])
 {
+    double ans = 0.0;
     if (argc == 2)
     {
         char expression[100];
@@ -23,7 +24,7 @@ int main(int argc, char *argv[])
 
         strcpy(expression, argv[1]);
 
-        if (decouperExpression(expression, tokens, &nbTokens))
+        if (decouperExpression(expression, tokens, &nbTokens, ans))
         {
             if (organiserExpression(tokens, nbTokens, sortie, &nbSortie))
             {
@@ -79,7 +80,7 @@ int main(int argc, char *argv[])
                             break;
                         }
 
-                        if (decouperExpression(expression, tokens, &nbTokens))
+                        if (decouperExpression(expression, tokens, &nbTokens, ans))
                         {
                             if (organiserExpression(tokens, nbTokens, sortie, &nbSortie))
                             {
@@ -87,7 +88,7 @@ int main(int argc, char *argv[])
                                 printf("\n \tResultat : %.4f\n\n", resultat);
                                 ajouterHistorique(expression, resultat);
                                 sauvegarderHistorique();
-
+                                ans = resultat;
                             }
                             //organiserExpression(tokens, nbTokens, sortie, &nbSortie);
                         }

@@ -15,6 +15,6 @@ typedef struct {
 } Token;
 
 /* prototype */
-int decouperExpression(char *expression, Token *tokens, int *nbTokens);
+int decouperExpression(char *expression, Token *tokens, int *nbTokens, double ans);
 
 #endif // TOKENISATION_H_INCLUDED
