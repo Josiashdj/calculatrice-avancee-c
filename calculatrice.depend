@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1786485676 source:d:\langage c\proj1calculatricehdj\calculatrice\main.c
+1786991863 source:d:\langage c\proj1calculatricehdj\calculatrice\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -17,14 +17,16 @@
 	<stdlib.h>
 	"piles.h"
 
-1786991811 d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.h
+1786997822 d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.h
 
-1786991840 source:d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.c
+1788365751 source:d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	"tokenisation.h"
 	"erreurs.h"
+	"string.h"
+	<math.h>
 
 1777886371 source:d:\langage c\proj1calculatricehdj\calculatrice\organiser_expression.c
 	<stdio.h>
@@ -40,12 +42,13 @@
 	"piles.h"
 	"tokenisation.h"
 
-1785967738 source:d:\langage c\proj1calculatricehdj\calculatrice\evaluation.c
+1788391604 source:d:\langage c\proj1calculatricehdj\calculatrice\evaluation.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
 	"evaluation.h"
 	"erreurs.h"
+	"tokenisation.h"
 
 1777758445 d:\langage c\proj1calculatricehdj\calculatrice\erreurs.h
 

@@ -3,6 +3,10 @@
 #include <ctype.h>    /* pour isdigit() et isspace() */
 #include "tokenisation.h"
 #include "erreurs.h"
+#include "string.h"
+
+#include <math.h>
+
 
 /* convertit une chaîne en minuscules pour comparaison */
 int comparerSansCasse(char *s1, char *s2)
@@ -122,6 +126,13 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens, double an
                     tokens[*nbTokens].valeur = ans; /* quelle valeur met-on ici ? */
                     (*nbTokens)++;
                     tokenPrecedent = NUM;
+                }
+                else if (comparerSansCasse(mot, "sqrt") == 0 || comparerSansCasse(mot, "sin")  == 0 || comparerSansCasse(mot, "cos")  == 0 || comparerSansCasse(mot, "abs")  == 0)
+                {
+                    tokens[*nbTokens].type = FUNC;
+                    strcpy(tokens[*nbTokens].nomFonction, mot);
+                    (*nbTokens)++;
+                    tokenPrecedent = FUNC;
                 }
                 else
                 {

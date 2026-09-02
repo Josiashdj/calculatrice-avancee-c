@@ -3,6 +3,7 @@
 #include <math.h>
 #include "evaluation.h"
 #include "erreurs.h"
+#include "tokenisation.h"
 
 double evaluerExpression(Token *sortie, int nbSortie)
 {
@@ -50,6 +51,22 @@ double evaluerExpression(Token *sortie, int nbSortie)
 
             empilerNombre(&pile, resultat);
         }
+        else if (sortie[i].type == FUNC)
+            {
+                double a = depilerNombre(&pile);
+                double resultat = 0.0;
+
+                if (comparerSansCasse(sortie[i].nomFonction, "sqrt") == 0)
+                    resultat = sqrt(a);
+                else if (comparerSansCasse(sortie[i].nomFonction, "sin") == 0)
+                    resultat = sin(a);
+                else if (comparerSansCasse(sortie[i].nomFonction, "cos") == 0)
+                    resultat = cos(a);
+                else if (comparerSansCasse(sortie[i].nomFonction, "abs") == 0)
+                    resultat = fabs(a);
+
+                empilerNombre(&pile, resultat);
+            }
     }
     return depilerNombre(&pile);
 }

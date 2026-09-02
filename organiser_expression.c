@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "organiser_expression.h"
 #include "erreurs.h"
+#include "string.h"
+
+#include <math.h>
+
 
 int priorite(char op)
 {
@@ -16,6 +20,8 @@ int organiserExpression(Token *tokens, int nbTokens, Token *sortie, int *nbSorti
     PileOperateurs pile;
     initialiserOperateurs(&pile);
     *nbSortie = 0;
+    char fonctions[50][10];
+    int nbFonctions = 0;
 
     int i;
     for(i=0; i< nbTokens;i++)
@@ -56,6 +62,19 @@ int organiserExpression(Token *tokens, int nbTokens, Token *sortie, int *nbSorti
                 (*nbSortie)++;
             }
             depilerOperateur(&pile);
+            if (!pileOperateursEstVide(&pile) && lireSommetOperateur(&pile) == 'f')
+            {
+                sortie[*nbSortie].type = FUNC;
+                strcpy(sortie[*nbSortie].nomFonction, fonctions[--nbFonctions]);
+                depilerOperateur(&pile);
+                (*nbSortie)++;
+            }
+        }
+        else if (tokens[i].type == FUNC)
+        {
+            strcpy(fonctions[nbFonctions], tokens[i].nomFonction);
+            nbFonctions++;
+            empilerOperateur(&pile, 'f');
         }
     }
 
