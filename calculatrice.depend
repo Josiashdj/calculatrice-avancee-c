@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1786991863 source:d:\langage c\proj1calculatricehdj\calculatrice\main.c
+1788562607 source:d:\langage c\proj1calculatricehdj\calculatrice\main.c
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -19,20 +19,21 @@
 
 1786997822 d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.h
 
-1788365751 source:d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.c
+1788561967 source:d:\langage c\proj1calculatricehdj\calculatrice\tokenisation.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
 	"tokenisation.h"
 	"erreurs.h"
 	"string.h"
-	<math.h>
 
-1777886371 source:d:\langage c\proj1calculatricehdj\calculatrice\organiser_expression.c
+1788562402 source:d:\langage c\proj1calculatricehdj\calculatrice\organiser_expression.c
 	<stdio.h>
 	<stdlib.h>
 	"organiser_expression.h"
 	"erreurs.h"
+	"string.h"
+	<math.h>
 
 1777747773 d:\langage c\proj1calculatricehdj\calculatrice\organiser_expression.h
 	"piles.h"
@@ -42,7 +43,7 @@
 	"piles.h"
 	"tokenisation.h"
 
-1788391604 source:d:\langage c\proj1calculatricehdj\calculatrice\evaluation.c
+1788562540 source:d:\langage c\proj1calculatricehdj\calculatrice\evaluation.c
 	<stdio.h>
 	<stdlib.h>
 	<math.h>
@@ -50,7 +51,7 @@
 	"erreurs.h"
 	"tokenisation.h"
 
-1777758445 d:\langage c\proj1calculatricehdj\calculatrice\erreurs.h
+1788561299 d:\langage c\proj1calculatricehdj\calculatrice\erreurs.h
 
 1786299782 source:d:\langage c\proj1calculatricehdj\calculatrice\historique.c
 	<stdio.h>
@@ -61,7 +62,7 @@
 
 1786278736 d:\langage c\proj1calculatricehdj\calculatrice\historique.h
 
-1777886857 source:d:\langage c\proj1calculatricehdj\calculatrice\erreurs.c
+1788561536 source:d:\langage c\proj1calculatricehdj\calculatrice\erreurs.c
 	<stdlib.h>
 	<stdio.h>
 	"erreurs.h"

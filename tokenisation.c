@@ -5,8 +5,7 @@
 #include "erreurs.h"
 #include "string.h"
 
-#include <math.h>
-
+int nbErreurs = 0;
 
 /* convertit une chaîne en minuscules pour comparaison */
 int comparerSansCasse(char *s1, char *s2)
@@ -29,8 +28,10 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens, double an
 
     if (expression[0] == '\0')
     {
-        afficherErreur(EXPRESSION_VIDE);
-        return 0;
+        afficherErreur(EXPRESSION_VIDE, expression, 0);
+
+        nbErreurs++;
+        i++;
     }
 
     while(expression[i] != '\0')  // fin de l'expression entrer par l'utilisateur
@@ -136,7 +137,7 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens, double an
                 }
                 else
                 {
-                    afficherErreur(CARACTERE_INVALIDE);
+                    afficherErreur(CARACTERE_INVALIDE, expression, i);
                     return 0;
                 }
             }
@@ -150,8 +151,10 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens, double an
             }
             else  // sinon, les opérateurs
             {
-                afficherErreur(CARACTERE_INVALIDE);
-                return 0;
+                afficherErreur(CARACTERE_INVALIDE, expression, i);
+
+                nbErreurs++;
+                i++;
                 /*tokens[*nbTokens].type =OP;
                 tokens[*nbTokens].symbole = expression[i];
                 (*nbTokens)++;
@@ -159,5 +162,6 @@ int decouperExpression(char *expression, Token *tokens, int *nbTokens, double an
             }
 
     }
+        if (nbErreurs > 0) return 0;
         return 1;
 }

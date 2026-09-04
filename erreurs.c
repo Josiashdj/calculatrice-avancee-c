@@ -2,26 +2,29 @@
 #include <stdio.h>
 #include "erreurs.h"
 
-void afficherErreur(TypeErreur erreur)
+void afficherErreur(TypeErreur erreur, char *expression, int position)
 {
-    switch(erreur)
+    printf("%s\n", expression);
+    int j;
+    for (j = 0; j < position; j++)
+        printf(" ");
+    printf("^\n");
+
+    /* afficher le message d'erreur */
+    switch (erreur)
     {
         case DIVISION_ZERO:
-           printf("\nErreur: Vous venez d'effectuer une division par 0! \n") ;
-           break;
-
+            printf("Erreur (position %d) : Division par zero !\n", position);
+            break;
         case PARENTHESE_ERREUR:
-            printf("\nErreur: Il semble avoir une erreur de parentheses\n");
+            printf("Erreur (position %d) : Parentheses mal formees !\n", position);
             break;
-
         case CARACTERE_INVALIDE:
-            printf("\nErreur: Vous avez entrer un caractere invalide\n");
+            printf("Erreur (position %d) : Caractere invalide !\n", position);
             break;
-
         case EXPRESSION_VIDE:
-            printf("\nErreur: veuiller entrer des chiffres pour effectuer un calcul !\n");
+            printf("Erreur : Expression vide !\n");
             break;
-
         default:
             break;
     }

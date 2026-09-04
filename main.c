@@ -76,7 +76,7 @@ int main(int argc, char *argv[])
                         expression[strcspn(expression, "\n")] = '\0';
                         if (expression[0] == '\0')                            /* ← expression vide */
                         {
-                            afficherErreur(EXPRESSION_VIDE);
+                            afficherErreur(EXPRESSION_VIDE, "", 0);
                             break;
                         }
 

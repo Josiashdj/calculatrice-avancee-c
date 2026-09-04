@@ -9,6 +9,6 @@ typedef enum {
     EXPRESSION_VIDE    /* expression vide */
 } TypeErreur;
 
-void afficherErreur(TypeErreur erreur);
+void afficherErreur(TypeErreur erreur, char *expression, int position);
 
 #endif // ERREURS_H_INCLUDED

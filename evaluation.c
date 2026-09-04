@@ -32,7 +32,7 @@ double evaluerExpression(Token *sortie, int nbSortie)
             {
                 if (b == 0)
                 {
-                    afficherErreur(DIVISION_ZERO);
+                    afficherErreur(DIVISION_ZERO, "", 0);
                     return 0.0;
                 }
                 resultat = a / b;
